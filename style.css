@@ -1,51 +1,109 @@
-body {
-  font-family: 'Tajawal', Arial, sans-serif;
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  color: #fff;
-  margin: 0;
-  padding: 0;
-  direction: rtl;
+/* خطوط جاهزة */
+:root{
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #0b71f4;
+  --accent-2: #0a66d1;
+  --ok: #12a454;
+  --danger: #e53935;
+  --glass: rgba(11,113,244,0.08);
+  --radius: 12px;
+  --shadow: 0 8px 30px rgba(16,24,40,0.06);
 }
 
-.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  background: rgba(0,0,0,0.6);
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+/* عام */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:'Tajawal',system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  background:var(--bg);
+  color:#0b1220;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  direction:rtl;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-weight: bold;
+/* الحاوية */
+.app{max-width:1150px;margin:24px auto;padding:12px}
+
+/* topbar */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:18px;
+}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{
+  width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;box-shadow:var(--shadow)
+}
+.brand h1{margin:0;font-size:18px;font-weight:800}
+.subtitle{margin:0;color:var(--muted);font-size:13px}
+
+/* score badge */
+.score-badge{
+  background:linear-gradient(180deg,#fff,#f3fbff);
+  border:1px solid rgba(11,113,244,0.12);
+  padding:8px 12px;border-radius:8px;font-weight:800;color:var(--accent);min-width:88px;text-align:center;
+  box-shadow: 0 6px 18px rgba(11,113,244,0.04);
+  margin-bottom:6px;
 }
 
-.question {
-  margin-bottom: 20px;
-  padding: 15px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 8px;
-}
+/* layout main */
+.main{display:grid;grid-template-columns:260px 1fr;gap:18px;align-items:start}
 
-button {
-  background: #ff9800;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
+/* sidebar */
+.sidebar{position:sticky;top:20px}
+.section-title{font-size:13px;margin-bottom:8px;color:var(--muted);font-weight:700}
+.nav-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.qbtn{height:40px;border-radius:8px;border:1px solid #e6edf7;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.qbtn.answered{background:linear-gradient(90deg,#defbe8,#e7fbef);border-color:#c6f0d6}
+.qbtn.current{outline:3px solid rgba(11,113,244,0.12)}
 
-button:hover {
-  background: #e68900;
-}
+/* panels */
+.panel{background:var(--card);padding:10px;border-radius:10px;box-shadow:var(--shadow)}
+.panel.small{padding:8px;font-size:14px}
 
-#results {
-  margin-top: 20px;
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
+/* content */
+.content{}
+.card{background:linear-gradient(180deg,#fff,#fcfeff);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow);min-height:260px}
+.card .qheader{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+.card h2{margin:0;font-size:16px;font-weight:800}
+.card p.desc{margin:0;color:var(--muted);font-size:14px}
+
+/* options */
+.options{margin-top:12px;display:flex;flex-direction:column;gap:10px}
+.option{
+  background:#fbfdff;border:1px solid #edf3ff;padding:12px;border-radius:10px;display:flex;align-items:center;gap:12px;cursor:pointer;
+  transition:all .12s ease;
+}
+.option input{transform:scale(1.05);margin-left:8px}
+.option:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(16,24,40,0.04)}
+.option.selected{background:var(--glass);border-color:rgba(11,113,244,0.16)}
+
+/* controls */
+.controls{display:flex;align-items:center;gap:8px;margin-top:12px}
+.btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 20px rgba(11,113,244,0.12)}
+.btn-secondary{background:#fff;border:1px solid #e6eefb;color:#0b1220}
+.spacer{flex:1}
+.progress{color:var(--muted);font-weight:700}
+
+/* explanations */
+.explanations{margin-top:18px}
+.explanations .ex{background:#fff8e1;border-left:4px solid #ffd54f;padding:12px;border-radius:8px;margin-bottom:10px}
+
+/* footer */
+.footer{text-align:center;margin-top:18px;color:var(--muted);font-size:13px}
+
+/* استجابة */
+@media (max-width:900px){
+  .main{grid-template-columns:1fr;gap:12px}
+  .sidebar{position:relative}
+  .nav-grid{grid-template-columns:repeat(7,1fr)}
 }
