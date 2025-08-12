@@ -1,19 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>اختبار بتروجاينا - الحلفاية</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>اختبار محاكي — بتروجاينا (الحلفافية)</title>
+
+  <!-- خط عربي واضح وعريض -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- ملف CSS خارجي -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<div class="container">
-  <h1>اختبار بتروجاينا - الحلفاية</h1>
-  <div id="quiz"></div>
-  <button id="submit">إرسال الإجابات</button>
-  <div id="results"></div>
-</div>
-<script src="questions.js"></script>
-<script src="script.js"></script>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">⛽</div>
+        <div>
+          <h1>اختبار محاكي — بتروجاينا (الحلفافية)</h1>
+          <p class="subtitle">نسخة تدريبية مفتوحة — 70 سؤال (40 فني • 20 قدرات • 10 إنجليزي)</p>
+        </div>
+      </div>
+      <div class="meta">
+        <div class="score-badge" id="scoreBadge" title="لا يوجد نتيجة بعد">— / 100</div>
+        <button id="finishBtn" class="btn btn-primary">إنهاء الاختبار</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <aside class="sidebar">
+        <div class="section-title">التنقّل</div>
+        <div id="navGrid" class="nav-grid"></div>
+
+        <div class="section-title" style="margin-top:16px">النتيجة</div>
+        <div class="panel small" id="resultPanel">
+          <div>الفني: <span id="techScore">0</span>/50</div>
+          <div>القدرات: <span id="aptScore">0</span>/30</div>
+          <div>الإنجليزي: <span id="engScore">0</span>/20</div>
+        </div>
+
+        <div style="margin-top:16px" class="section-title">خيارات</div>
+        <div class="panel small">
+          <label class="option-inline"><input type="checkbox" id="autoMark"> تمييز السؤال عند الاختيار</label>
+          <button id="resetBtn" class="btn btn-secondary" style="margin-top:8px">إعادة تعيين الإجابات</button>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div id="questionCard" class="card">
+          <!-- rendered by JS -->
+        </div>
+
+        <div class="controls">
+          <button id="prevBtn" class="btn btn-secondary">السابق</button>
+          <button id="nextBtn" class="btn btn-secondary">التالي</button>
+          <div class="spacer"></div>
+          <div class="progress">
+            سؤال <span id="currentIndex">0</span> من <span id="totalCount">0</span>
+          </div>
+        </div>
+
+        <div id="explanations" class="explanations" style="display:none">
+          <h3>الشروحات</h3>
+          <div id="exList"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>التقييم الوزني: فني 50 • قدرات 30 • إنجليزي 20 — هذا اختبار مفتوح الزمن للتدريب فقط.</small>
+    </footer>
+  </div>
+
+  <!-- ملف JS خارجي -->
+  <script src="script.js"></script>
 </body>
 </html>
